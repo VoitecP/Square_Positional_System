@@ -1,5 +1,6 @@
 # Square Positional System
-New way of factorisation big numbers, and prime number's secrets ;)
+New way of factorisation big numbers, and find some prime number's secrets ;)
+
 If you are interested about philosophy, possible connection to Riemann Hypothesis, check PDF ile in docs folder
 ![Square_positional_System.pdf](https://github.com/VoitecP/Square_Positional_System/blob/e7e05679fedfad53625bd43dd423a867394c9248/Docs/Square%20Positional%20System.pdf)
 
