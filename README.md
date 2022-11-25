@@ -4,7 +4,7 @@ New way of factorisation big numbers, and find some prime number's secrets ;)
 If you are interested about philosophy, possible connection to Riemann Hypothesis, check PDF File in docs folder
 
 ![Square_positional_System.pdf](https://github.com/VoitecP/Square_Positional_System/blob/e7e05679fedfad53625bd43dd423a867394c9248/Docs/Square%20Positional%20System.pdf)
-If you want play with numbers, you can find Sheets, with VBA scripts to generate number tables.
+If you want play with numbers, you can find Sheets, with VBA scripts inside to generate output number tables.
 
 There is also alpha stage (not tested for errors) Python code to factorise, composite numbers.
 Materials are open source and free, feel free to give feedback.
