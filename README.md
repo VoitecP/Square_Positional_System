@@ -1,4 +1,5 @@
 # Square Positional System
+## factorisation.py Still in Alpha Stage !
 New way of factorisation big numbers, and find some prime number's secrets ;)
 
 If you are interested about philosophy, possible connection to Riemann Hypothesis, check PDF File in docs folder
