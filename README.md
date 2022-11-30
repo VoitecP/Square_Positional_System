@@ -10,7 +10,7 @@ If you want play with numbers, you can find Sheets, with VBA scripts inside to g
 Update: There is hidden potential to speed up and simplify some calculations, but it need some sumbers observations.
 Materials are open source and free, feel free to give feedback.
 
-rectangle.py it ready to play :)
+rectangle.py is ready to play :)
 # Demo screens
 ![image](https://github.com/VoitecP/Square_Positional_System/blob/e7e05679fedfad53625bd43dd423a867394c9248/images/screen01.jpg)
 ![image](https://github.com/VoitecP/Square_Positional_System/blob/e7e05679fedfad53625bd43dd423a867394c9248/images/screen02.jpg)
