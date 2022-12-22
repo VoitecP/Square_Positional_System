@@ -3,13 +3,14 @@ print('This program find divisors N number from range 0.7sqrt(N) -> sqrt(N), use
 print('Program starts from around 0.7sqrt(N), from divisor parabola vertex,')
 num = input('Insert only ODD  (1887, 2479 etc. ) number to factorise:\n')
 num = int(num)
-num_sqrt=math.sqrt(num)     # square root
-column=math.ceil(num_sqrt)  # round up
-col_sq=column**2             # creating perfect square
-#col_mod=3       # variable declaration
+num_sqrt=math.sqrt(num)             # square root
+column=math.ceil(num_sqrt)          # round up
+col_sq=column**2                    # creating perfect square
+             
 
-print(col_sq)
-# Column odd/even checker
+      
+
+#  # Column odd/even checker
 if  column%2==0:
     col_mod=0
 elif column%2==1: 
@@ -31,10 +32,8 @@ triplets = math.ceil(triplet)                # Quantity of full triplets
 triplet_type=triplet-(triplets-1)            # Triplet type values: 0.33, 0.66, 1.00
 
 # Calculating Starting divisor for c2 cursor 2 divisor position
-# kol 27  moze zależna
 range_div =(triplets - 1)*2
 steps_div=triplets-1            # it will be ok -1 no much difference when -0
-#range_div=triplets
 start_div=end_div-range_div                  # Starting divisor for c2 
 
 # Quartet calculation for c2 Cursor 2 value
@@ -119,75 +118,81 @@ c3=c3_starter+((c3_quartets-1)*c3_counter)    # Cursos 3 For loop Setup
 c2=c2-of1_c2
 c3=c3-of1_c3
 
+# Initial divisors setup
+dv1=start_div-2
+dv2=start_div
+dv3=start_div+2
+
 #### Working Engine
-print('col_mod',col_mod)
 if  col_mod==0: 
-
-    dv1=start_div-2
-    dv2=start_div
-    dv3=start_div+2
-    half1_dv2=(dv2+1)/2      #  for 1.5 cycle , if number is places in 1.5 divisor cycle
-    half2_dv2=(dv2-1)/2      #  for 0.5 cycle , if number is places in 0.5 divisor cycle
-
+    half_dv2=(dv2+1)/2          #  for 1.5 cycle , if number is places in 1.5 divisor cycle    # correction  0.5  and dv3 because we need to check to next divisor
     if  ((end_div-1))/2<num_place:      # Posibility to optimalisation
         print('Number is in 1.5 divisor cycle, not in 0.5 divisor cycle')  
 
-
     for n in range(steps_div):   #  n should start from 0  !
-        print('for n',n)
+        
         c1=c2-(of2_c2+(n*6))
-        if c1<=0:               # need loop if<0      
-            c1=dv2+c1
-            print('if<0 c1',c1)     
+        if c1<=0:                           # if c2 <= (of2_c2+(n*6)):
+            c1=dv2+c2-(of2_c2+(n*6))
+    
         c2=c3-(of2_c3+(n*6))
-        if c2<=0:
-            c2=dv3+c2
-            print('if<0 c2',c2)  
-        c3=(c2-c1)+c2
-        if (dv3+2)<c3:                   # obliczone juz na nowy parametr trzeba na stare parametry.
-            c3=c3-dv2                   #  or  value: dv3-2, works both dv2, dv3-2 
-            print('if<0 c3',c3)  
+        if c2<=0:                           # if c3<=(of2_c3+(n*6)):   
+            c2=dv3+c3-(of2_c3+(n*6))
+        
+        if c1>c2:
+            c3=dv2-c1+c2+c2
+        else:
+            c3=(c2-c1)+c2
+        
+        if (dv3+2)<c3:                   
+            c3=c3-dv3-2                     # - (dv3+2)               
+            
+        
         dv1=dv1+2
         dv2=dv2+2
         dv3=dv3+2
+        half_dv2=half_dv2+1 
 
-        half1_dv2=half1_dv2+1 
-        half2_dv2=half2_dv2+1
-        
         # if number is places in 1.5 divisor cycle
-        if c2+num_place-half1_dv2 == dv2+1:
+        if c2 + num_place ==  dv2 + half_dv2+1:    # corrected checked
             print('Divisor: ', dv2,'Factorisation finished in ',n+1, 'steps, c2 parameter ',c2)
-        # if number is places in 0.5 divisor cycle
-        if c2+num_place+half2_dv2 == dv2+1:
-            print('Divisor: ', dv2,'Factorisation finished in ',n+1, 'steps, c2 parameter ',c2)
-        print('n steps end ',n,'n*6',n*6, ' c1 ',c1, 'c2 ',c2,'c3',c3, 'div2' ,dv2  )
-
+            # break
+        # if number is places in 0.5 divisor cycle  # corrected
+        if c2+num_place == half_dv2+1:             # corected
+            print('Divisor: ', dv2,'Factorisation finished in ',n+1, 'steps, c2 parameter ',c2)  # We pring dv3 as a output divisor because of  next div.
+            # break
+        
+        # print('c2+num_place==', c2 + num_place,'==dv2 + half_dv2+1',dv2 + half_dv2+1,'half_dv2+1',half_dv2+1,'dv2',dv2, 'num_place', num_place,'c2', c2 )
+        
+        
 elif col_mod==1:
-
-    dv1=start_div-2
-    dv2=start_div
-    dv3=start_div+2
-
     for n in range(steps_div):   #  n should start from 0  !
-        print('for n',n)
+       
         c1=c2-(of2_c2+(n*6))
-        if c1<=0:               # need loop if<0      
-            c1=dv2+c1
-            print('if<0 c1',c1)   
+        if c2 <= (of2_c2+(n*6)):            # if c2 <= (of2_c2+(n*6)):
+            c1=dv2+c2-(of2_c2+(n*6))
+        
         c2=c3-(of2_c3+(n*6))
-        if c2<=0:
-            c2=dv3+c2
-            print('if<0 c2',c2)
-        c3=(c2-c1)+c2
-        if (dv3+2)<c3:                         # obliczone juz na nowy parametr trzeba na stare parametry.
-            c3=c3-dv2           # dv3-2
-            print('if<0 c3',c3)
+        if c3<=(of2_c3+(n*6)):              # if c3<=(of2_c3+(n*6)): 
+            c2=dv3+c3-(of2_c3+(n*6))
+    
+        if c1>c2:
+            c3=dv2-c1+c2+c2
+        else:
+            c3=(c2-c1)+c2
+
+        if (dv3+2)<c3:                         
+            c3=c3-dv3-2                     # - (dv3+2)     
+            
         dv1=dv1+2
         dv2=dv2+2
         dv3=dv3+2
-
-        # full cycle   # wrong statement if should be befor for loop
-        
+       
         if c2+num_place == dv2+1:
             print('Divisor: ', dv2,'Factorisation finished in ',n+1, 'steps, c2 parameter ',c2)
-        print('n steps end ',n,'n*6',n*6, ' c1 ',c1, 'c2 ',c2,'c3',c3, 'div2' ,dv2  )
+            # break
+
+        # print('n steps end ',n,'n*6',n*6, ' c1 ',c1, 'c2 ',c2,'c3',c3, 'div2' ,dv2  )
+    
+
+    
