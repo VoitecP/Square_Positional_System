@@ -1,6 +1,6 @@
 # Square Positional System
 
-factorisation.py In Beta-Test stage, major errors fixed !
+!! factorisation.py In Beta-Test stage, major errors fixed !
 
 New way of factorisation big numbers, and find some prime number's secrets ;)
 
