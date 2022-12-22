@@ -1,5 +1,7 @@
-# Square Positional System
-## factorisation.py In Beta-Test stage, major errors fixed !
+## Square Positional System
+
+# factorisation.py In Beta-Test stage, major errors fixed !
+
 New way of factorisation big numbers, and find some prime number's secrets ;)
 
 If you are interested about philosophy, possible connection to Riemann Hypothesis, check PDF File in docs folder
