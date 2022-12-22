@@ -11,6 +11,7 @@ Update: There is hidden potential to speed up and simplify some calculations, bu
 Materials are open source and free, feel free to give feedback.
 
 factorisation.py In Beta-Test stage, major errors fixed 
+
 rectangle.py is ready to play :)
 
 # Demo screens
